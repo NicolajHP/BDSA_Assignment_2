@@ -1,5 +1,4 @@
-namespace Assignment2;
-
+﻿namespace Student;
 public class Student{
     public int Id { get; init; }
     public string GivenName { get; set; }
