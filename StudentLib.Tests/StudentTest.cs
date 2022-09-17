@@ -66,10 +66,10 @@ public class StudentTest
             StartDate = new DateTime(2019, 8, 1), EndDate = new DateTime(2022, 6, 1),GraduationDate = new DateTime(2022, 6, 1)};
 
         //Act
-        var result = student.Status;
+        var result = student.ToString();
 
         //Assert
-        result.Should().Be(Status.Graduated);
+        result.Should().Be("Student name: John Doe \n Status: Graduated");
         
     }
 }

@@ -15,7 +15,7 @@ public class Student{
         else return DateTime.Compare(StartDate.AddYears(1), DateTime.Now) > 0 ? Status.New : Status.Active;
     }
 
-    public override string ToString() => $"Student name: {GivenName} {Surname} \n Their status is {Status}";
+    public override string ToString() => $"Student name: {GivenName} {Surname} \n Status: {Status}";
     
 
 }
