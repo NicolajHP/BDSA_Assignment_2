@@ -3,7 +3,7 @@ public class Student{
     public int Id { get; init; }
     public string GivenName { get; set; }
     public string Surname { get; set; }
-    public  Status Status{ get {return calcStatus();} }
+    public Status Status{ get {return calcStatus();} }
     public DateTime StartDate{ get; set; }
     public DateTime EndDate{ get; set; }
     public DateTime GraduationDate{ get; set; }
@@ -14,6 +14,9 @@ public class Student{
         //Else see if student is new or just active
         else return DateTime.Compare(StartDate.AddYears(1), DateTime.Now) > 0 ? Status.New : Status.Active;
     }
+
+    public override string ToString() => $"Student name: {GivenName} {Surname} \n Their status is {Status}";
+    
 
 }
 
