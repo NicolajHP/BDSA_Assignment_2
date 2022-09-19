@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StudentNamespace\StudentNamespace.csproj" />
+    <ProjectReference Include="..\StudentLib\StudentLib.csproj" />
   </ItemGroup>
+
+
 
 </Project>
