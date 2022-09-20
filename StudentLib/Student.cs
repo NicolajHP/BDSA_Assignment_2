@@ -27,3 +27,15 @@ public enum Status{
     Graduated
 }
 
+public record ImmutableStudent(int Id, string GivenName, string Surname, DateTime StartDate, DateTime EndDate, DateTime GraduationDate){   
+    public Status Status{ get {return calcStatus();} }
+
+     public Status calcStatus(){
+        //Check if EndDate is passed and if true check if EndDate and GraduationDate matches
+        if (DateTime.Compare(DateTime.Now, EndDate) > 0) return DateTime.Compare(EndDate, GraduationDate) == 0 ? Status.Graduated : Status.Dropout;
+        //Else see if student is new or just active
+        else return DateTime.Compare(StartDate.AddYears(1), DateTime.Now) > 0 ? Status.New : Status.Active;
+    }
+
+}
+
