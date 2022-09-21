@@ -25,14 +25,14 @@ public class Queries
         return allWiz;
     }
 
-    public static IEnumerable<System.Linq.IGrouping<String, Assignment2.Wizard>> ListOfWizByCreator(WizardCollection wizCol){
+    public static List<List<Wizard>> ListOfWizByCreator(WizardCollection wizCol){
         var listWiz = from w in wizCol
                       let c = w.Creator
                       let n = w.Name
                       orderby c descending, n descending
                       group w by c into newGrp
-                      select newGrp;
-        return listWiz;
+                      select newGrp.ToList();
+        return listWiz.ToList();
 
     }
 }

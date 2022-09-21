@@ -40,9 +40,20 @@ public class QueriesTests
     {
         //Arrange
         var wizards = WizardCollection.Create();
+        var ListList = new List<List<Wizard>>();
+        ListList.Add(new List<Wizard>{new Wizard("Mickey Mouse","Fantasia",1940,"Walt Disney")});
+        ListList.Add(new List<Wizard>{new Wizard("Glinda The Good Witch","The Wizard of Oz",1939,"L. Frank Baum")});
+        ListList.Add(new List<Wizard>{new Wizard("Zatanna Zatara","hawkman #4",1964,"Julius Schwartz")});
+        ListList.Add(new List<Wizard>{new Wizard("Sauron","The Fellowship of the Ring",1954,"J.R.R. Tolkien"), new Wizard("Gandalf","The Fellowship of the Ring",1954,"J.R.R. Tolkien")});
+        ListList.Add(new List<Wizard>{new Wizard("Lord Voldemort","Harry Potter and The Philosopher's Stone",1997,"J.K. Rowling"), new Wizard("Harry Potter","Harry Potter and The Philosopher's Stone",1997,"J.K. Rowling")});
+        ListList.Add(new List<Wizard>{new Wizard("Darth Vader","Star Wars",1977,"George Lucas"), new Wizard("Darth Sidious","Star Wars",1980,"George Lucas")});
+        ListList.Add(new List<Wizard>{new Wizard("Merlin","Prophetiae Merlini",1200,"Geoffrey of Monmouth")});
+        
         //Act
         var wizbyrowl = Queries.ListOfWizByCreator(wizards);
+        
         //Assert
-        wizbyrowl.Take(2).Should().BeEquivalentTo(new[] {("Lord Voldemort", 1997), ("Harry Potter", 1997)});
+        wizbyrowl.Should().BeEquivalentTo(ListList);
+        
     }
 }
