@@ -72,4 +72,48 @@ public class StudentTest
         result.Should().Be("Student name: John Doe \n Status: Graduated");
         
     }
+
+    [Fact]
+    public void records_built_in_comparer_true()
+    {
+        //Arrange
+        var student1 = new ImmutableStudent(42, "John", "Doe", new DateTime(2019, 8, 1), new DateTime(2022, 6, 1), new DateTime(2022, 6, 1));
+        var student2 = new ImmutableStudent(42, "John", "Doe", new DateTime(2019, 8, 1), new DateTime(2022, 6, 1), new DateTime(2022, 6, 1));
+
+        //Act
+        var result = student1.Equals(student2);
+
+        //Assert
+        result.Should().Be(true);
+        
+    }
+
+       [Fact]
+    public void records_built_in_comparer_false()
+    {
+        //Arrange
+        var student1 = new ImmutableStudent(24, "John", "Doe", new DateTime(2019, 8, 1), new DateTime(2022, 6, 1), new DateTime(2022, 6, 1));
+        var student2 = new ImmutableStudent(42, "John", "Doe", new DateTime(2019, 8, 1), new DateTime(2022, 6, 1), new DateTime(2022, 6, 1));
+
+        //Act
+        var result = student1.Equals(student2);
+
+        //Assert
+        result.Should().Be(false);
+        
+    }
+
+    [Fact]
+    public void record_to_string_properties()
+    {
+        //Arrange
+        var student = new ImmutableStudent(42, "John", "Doe", new DateTime(2019, 8, 1), new DateTime(2022, 6, 1), new DateTime(2022, 6, 1));
+
+        //Act
+        var result = student.ToString();
+
+        //Assert
+        result.Should().Be("ImmutableStudent { Id = 42, GivenName = John, Surname = Doe, StartDate = 01-08-2019 00:00:00, EndDate = 01-06-2022 00:00:00, GraduationDate = 01-06-2022 00:00:00, Status = Graduated }");
+        
+    }
 }
