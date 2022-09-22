@@ -113,6 +113,6 @@ public class StudentTest
         var result = student.ToString();
 
         //Assert
-        result.Should().Be("ImmutableStudent { Id = 42, GivenName = John, Surname = Doe, StartDate = 8/1/2019 12:00:00 AM, EndDate = 6/1/2022 12:00:00 AM, GraduationDate = 6/1/2022 12:00:00 AM, Status = Graduated }");
+        result.Should().Be("ImmutableStudent { Id = 42, GivenName = John, Surname = Doe, StartDate = 01-08-2019 00:00:00, EndDate = 01-06-2022 00:00:00, GraduationDate = 01-06-2022 00:00:00, Status = Graduated }");
     }
 }
